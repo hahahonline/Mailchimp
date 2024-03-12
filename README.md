@@ -3,7 +3,7 @@
 # Instruções Git:
 
 1- Clonar o repositório:
-   git clone [<URL do repositório>](https://github.com/hahahonline/CommuLink.git)
+   git clone https://github.com/hahahonline/CommuLink.git
 
 2- Criar a branch (branch é uma ramificação do código):
    git branch <nome-da-nova-branch>
