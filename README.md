@@ -1,4 +1,4 @@
-# CommuLink
+# Mailchimp
 
 # Instruções Git:
 
