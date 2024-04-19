@@ -4,8 +4,11 @@ from django.urls import path
 from app.controllers import user_views
 
 urlpatterns = [
-    path('users/', user_views.create_user),
-    path('users/<int:user_id>/', user_views.get_user_by_id),
-    path('inicio/', user_views.inicio),
+    path('signup/', user_views.signup, name='signup'),
+    path('login/', user_views.login, name='login'),
+    path('logout/', user_views.logout, name='logout'),
+    path('', user_views.home, name='home'),  
+    path('login_success/', user_views.login_success, name='login_success'), 
+    path('signup_success/', user_views.signup_success, name='signup_success'),  # adicione esta linha
 ]
 
