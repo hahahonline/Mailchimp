@@ -5,6 +5,9 @@
 1- Clonar o repositório:
    git clone https://github.com/hahahonline/Mailchimp.git
 
+1.1 - Instale todas as dependências(veja se seu terminal está no diretório correto):
+   pip install requirements.txt
+
 2- Criar a branch (branch é uma ramificação do código):
    git branch <nome-da-nova-branch>
 
