@@ -1,0 +1,22 @@
+Descrição dos Arquivos:
+
+
+src/: Diretório principal do código fonte.
+
+app/: Aplicativo Django que contém as configurações, views e modelos da aplicação.
+
+controllers/: Contém as views (controladores) que lidam com as solicitações HTTP.
+
+models/: Define os modelos de dados da aplicação.
+
+services/: Contém os serviços que executam operações de negócios.
+
+urls.py: Define as rotas da API.
+
+config/: Armazena arquivos de configuração da aplicação, como as configurações do Django.
+
+manage.py: Utilitário do Django para gerenciar o projeto.
+
+requirements.txt: Lista de pacotes Python necessários para o projeto.
+
+.gitignore: Lista de arquivos e diretórios a serem ignorados pelo Git.
