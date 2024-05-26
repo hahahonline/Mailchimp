@@ -11,6 +11,7 @@ export default function Page() {
         alt=""
         width={590}
         height={590}
+        priority
       />
       <div className="flex flex-col gap-6 lg:max-w-[450px] w-full ml-auto">
         <Link

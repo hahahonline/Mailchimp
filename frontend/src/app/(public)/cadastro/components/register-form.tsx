@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const schema = z
   .object({
@@ -36,6 +38,8 @@ const schema = z
 type Schema = z.infer<typeof schema>;
 
 export function RegisterForm({ className }: { className?: string }) {
+  const router = useRouter();
+
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -47,7 +51,11 @@ export function RegisterForm({ className }: { className?: string }) {
   });
 
   function onSubmit(data: Schema) {
-    console.log(data);
+    router.push("/acessar");
+    toast.success("Conta criada com sucesso", {
+      description: "Agora você já pode acessar sua conta",
+      position: "top-center",
+    });
   }
 
   return (
