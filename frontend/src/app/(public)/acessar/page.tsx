@@ -41,7 +41,7 @@ export default function Page() {
           </Link>
         </span>
         <Link
-          href="/recuperar-senha"
+          href="/acessar/recuperar-senha"
           className="hover:underline font-semibold text-zinc-900 block"
         >
           Esqueceu a senha?
