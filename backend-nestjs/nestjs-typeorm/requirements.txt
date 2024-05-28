@@ -1,0 +1,2 @@
+npm install bcrypt
+npm install class-validator

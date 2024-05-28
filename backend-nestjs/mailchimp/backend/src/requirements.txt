@@ -1,7 +1,0 @@
-asgiref==3.8.1
-Django==3.2.12
-dotenv==0.0.5
-python-dotenv==1.0.1
-pytz==2024.1
-sqlparse==0.4.4
-tzdata==2024.1
