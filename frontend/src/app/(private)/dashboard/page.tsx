@@ -1,5 +1,5 @@
 import { Send, Users } from "lucide-react";
-import { SummarySection } from "./components/SummarySection";
+import { SummarySection } from "./components/summary-section";
 import { RecentAddedUsersTable } from "./components/recent-added-users-table";
 import { LastCampaignSentTable } from "./components/last-campaign-sent-table";
 
