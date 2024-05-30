@@ -12,7 +12,7 @@ export function DashboardHeader() {
   const pathname = usePathname();
 
   return (
-    <header>
+    <header className="border-b border-zinc-200">
       <RestrictedArea className="py-4 flex justify-between">
         <Link href="/dashboard">
           <Image

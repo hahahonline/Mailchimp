@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <DashboardHeader />
-      <RestrictedArea>{children}</RestrictedArea>
+      <RestrictedArea className="py-6">{children}</RestrictedArea>
     </>
   );
 }
