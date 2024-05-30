@@ -29,7 +29,7 @@ const summaryItems = [
 
 export function SummarySection() {
   return (
-    <section className="grid grid-cols-4 gap">
+    <section className="grid grid-cols-4 gap-6">
       {summaryItems.map((summaryItem) => (
         <SummaryCard key={summaryItem.title} {...summaryItem} />
       ))}
@@ -49,7 +49,7 @@ function SummaryCard({
   Icon: React.ReactNode;
 }) {
   return (
-    <div className="w-[265px] rounded-md border p-4 flex flex-col justify-between h-[120px]">
+    <div className="rounded-md border p-4 flex flex-col justify-between h-[120px]">
       <div className="flex justify-between items-center">
         <span className="block">{title}</span>
         {Icon}
