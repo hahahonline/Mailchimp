@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -28,9 +27,7 @@ import { Send } from "lucide-react";
 import { ContactsSelector } from "@/components/contacts-selector";
 
 const schema = z.object({
-  group: z.string({
-    required_error: "Selecione um grupo",
-  }),
+  group: z.string().min(1, { message: "Selecione um grupo" }),
   title: z.string().min(1, { message: "O título é obrigatório" }),
   message: z.string().min(1, { message: "A mensagem é obrigatória" }),
 });
@@ -38,20 +35,20 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export function NewCampaignForm({ className }: { className?: string }) {
-  const router = useRouter();
-
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
+      group: "",
       title: "",
       message: "",
     },
   });
 
   function onSubmit(data: Schema) {
-    router.push("/acessar");
-    toast.success("Conta criada com sucesso", {
-      description: "Agora você já pode acessar sua conta",
+    form.reset();
+    toast.success("Campanha enviada com sucesso", {
+      description:
+        "Sua campanha foi enviada com sucesso para o grupo e contatos selecionados.",
       position: "top-center",
     });
   }
@@ -68,7 +65,7 @@ export function NewCampaignForm({ className }: { className?: string }) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Grupo</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Selecione um grupo de contatos" />
@@ -108,7 +105,7 @@ export function NewCampaignForm({ className }: { className?: string }) {
               <FormLabel>Mensagem</FormLabel>
               <FormControl>
                 <Textarea
-                className="min-h-56"
+                  className="min-h-56"
                   placeholder="Digite sua mensagem aqui..."
                   {...field}
                 />
