@@ -60,9 +60,11 @@ export function DashboardHeader() {
             </li>
           </ul>
         </nav>
-        <Button>
-          <MailPlus className="mr-2 h-4 w-4" />
-          Nova campanha
+        <Button asChild>
+          <Link href="/dashboard/nova-campanha">
+            <MailPlus className="mr-2 h-4 w-4" />
+            Nova campanha
+          </Link>
         </Button>
       </RestrictedArea>
     </header>
