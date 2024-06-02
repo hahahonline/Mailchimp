@@ -12,6 +12,9 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "ZipMail",
   description: "Envio de mensagens em massa",
+  icons: {
+    icon: "/favicon.png",
+  }
 };
 
 export default function RootLayout({
@@ -20,7 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
+      
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
