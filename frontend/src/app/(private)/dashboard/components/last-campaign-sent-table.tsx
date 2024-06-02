@@ -15,7 +15,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { MessageSquareMore } from "lucide-react";
+import { Ellipsis } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const items = [
   {
@@ -59,10 +60,12 @@ export function LastCampaignSentTable() {
               <TableCell>{item.audience}</TableCell>
               <TableCell>{item.date}</TableCell>
               <TableCell>
-                <MessageSquareMore
-                  size={24}
-                  className="text-gray-500 hover:text-gray-700 cursor-pointer"
-                />
+                <Button variant="outline" size="icon">
+                  <Ellipsis
+                    size={16}
+                    className="text-gray-500 hover:text-gray-700 cursor-pointer"
+                  />
+                </Button>
               </TableCell>
             </TableRow>
           ))}
