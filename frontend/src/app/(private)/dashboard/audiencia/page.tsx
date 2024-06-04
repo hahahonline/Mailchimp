@@ -3,6 +3,7 @@ import { AllContactsTable } from "./components/all-contacts-table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AllGroupsTable } from "./components/all-groups-table";
+import { CreateContactDialog } from "./components/create-contact-dialog";
 
 export default function Page() {
   return (
@@ -15,10 +16,12 @@ export default function Page() {
             <Users className="h-6 w-6 mr-3" strokeWidth={2.5} />
             Todos os seus contatos
           </h2>
-          <Button>
-            <PlusCircle className="h-4 w-4 mr-2" strokeWidth={2.5} />
-            Adicionar contato
-          </Button>
+          <CreateContactDialog>
+            <Button>
+              <PlusCircle className="h-4 w-4 mr-2" strokeWidth={2.5} />
+              Adicionar contato
+            </Button>
+          </CreateContactDialog>
         </div>
         <div className="border rounded-md p-5 flex flex-col gap-6">
           <Input placeholder="Buscar por nome, e-mail ou celular" />
