@@ -15,10 +15,11 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Cog, Search, UserPlus } from "lucide-react";
+import { PencilLine, Search, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GetGroupContactsDialog } from "./get-group-contacts-dialog";
 import { AddContactsToGroupDialog } from "./add-contacts-to-group-dialog";
+import { EditGroupDialog } from "./edit-group-dialog";
 
 const items = [
   {
@@ -102,9 +103,11 @@ export function AllGroupsTable() {
                     <UserPlus className="h-4 w-4" />
                   </Button>
                 </AddContactsToGroupDialog>
-                <Button size="icon" variant="outline">
-                  <Cog className="h-4 w-4" />
-                </Button>
+                <EditGroupDialog>
+                  <Button size="icon" variant="outline">
+                    <PencilLine className="h-4 w-4" />
+                  </Button>
+                </EditGroupDialog>
               </TableCell>
             </TableRow>
           ))}
