@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const schema = z.object({
   email: z.string().email({ message: "E-mail inválido" }),
@@ -25,6 +27,8 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export function LoginForm({ className }: { className?: string }) {
+  const router = useRouter();
+
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -34,7 +38,11 @@ export function LoginForm({ className }: { className?: string }) {
   });
 
   function onSubmit(data: Schema) {
-    console.log(data);
+    router.push("/dashboard");
+    toast.success("Você entrou na sua conta", {
+      description: "Seja bem-vindo!",
+      position: "bottom-right",
+    });
   }
 
   return (
