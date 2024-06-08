@@ -10,22 +10,21 @@ const tags = Array.from({ length: 50 }).map(
 export function ContactsSelector() {
   return (
     <div className="flex flex-col gap-2">
-      <Label className="text-sm font-medium">
-        Adicionar contatos à mensagem (opcional)
-      </Label>
-      <ScrollArea className="h-72 rounded-md border w-full">
-        <div className="p-4">
-          {tags.map((tag, index) => (
-            <>
-              {index !== 0 && <Separator className="my-4" />}
-              <div key={tag} className="text-sm flex items-center gap-4">
-                <Checkbox id="terms" />
-                <span className="block">{tag}</span>
-              </div>
-            </>
-          ))}
-        </div>
-      </ScrollArea>
+      <div className="h-72 rounded-md border w-full overflow-y-scroll">
+        <ScrollArea>
+          <div className="p-4">
+            {tags.map((tag, index) => (
+              <>
+                {index !== 0 && <Separator className="my-4" />}
+                <div key={tag} className="text-sm flex items-center gap-4">
+                  <Checkbox id="terms" />
+                  <span className="block">{tag}</span>
+                </div>
+              </>
+            ))}
+          </div>
+        </ScrollArea>
+      </div>
     </div>
   );
 }

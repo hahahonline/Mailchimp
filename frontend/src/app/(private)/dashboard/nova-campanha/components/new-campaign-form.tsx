@@ -25,6 +25,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
 import { ContactsSelector } from "@/components/contacts-selector";
+import { Label } from "@/components/ui/label";
 
 const schema = z.object({
   group: z.string().min(1, { message: "Selecione um grupo" }),
@@ -81,7 +82,12 @@ export function NewCampaignForm({ className }: { className?: string }) {
             </FormItem>
           )}
         />
-        <ContactsSelector />
+        <div className="flex flex-col gap-2">
+          <Label className="text-sm font-medium">
+            Adicionar contatos à mensagem (opcional)
+          </Label>
+          <ContactsSelector />
+        </div>
 
         <FormField
           control={form.control}

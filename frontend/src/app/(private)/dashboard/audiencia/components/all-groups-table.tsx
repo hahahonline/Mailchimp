@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/pagination";
 import { Cog, Search, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { GetGroupContactsDialog } from "./get-group-contacts-dialog";
 
 const items = [
   {
@@ -90,9 +91,11 @@ export function AllGroupsTable() {
               <TableCell>{item.participantsCount}</TableCell>
               <TableCell>{item.createdAt}</TableCell>
               <TableCell className="flex gap-4">
-                <Button size="icon" variant="outline">
-                  <Search className="h-4 w-4" />
-                </Button>
+                <GetGroupContactsDialog>
+                  <Button size="icon" variant="outline">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                </GetGroupContactsDialog>
                 <Button size="icon" variant="outline">
                   <UserPlus className="h-4 w-4" />
                 </Button>
