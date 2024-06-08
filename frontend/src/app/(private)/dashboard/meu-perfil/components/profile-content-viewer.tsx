@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ChangeUserInfosForm } from "./change-user-infos-form";
 import { ChangeUserPasswordForm } from "./change-user-password-form";
 import { LogOut } from "lucide-react";
+import { ConfirmLogoutDialog } from "./confirm-logout-dialog";
 
 export function ProfileContentViewer() {
   const [currentContent, setCurrentContent] = useState<
@@ -38,13 +39,15 @@ export function ProfileContentViewer() {
             </Button>
           </li>
           <li>
-            <Button
-              className="justify-start w-full text-red-600 hover:bg-red-50 hover:text-red-600"
-              variant="ghost"
-            >
-              <LogOut size={16} className="mr-2" />
-              Sair da conta
-            </Button>
+            <ConfirmLogoutDialog>
+              <Button
+                className="justify-start w-full text-red-600 hover:bg-red-50 hover:text-red-600"
+                variant="ghost"
+              >
+                <LogOut size={16} className="mr-2" />
+                Sair da conta
+              </Button>
+            </ConfirmLogoutDialog>
           </li>
         </ul>
       </aside>
