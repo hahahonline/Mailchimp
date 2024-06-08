@@ -18,6 +18,7 @@ import {
 import { Cog, Search, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GetGroupContactsDialog } from "./get-group-contacts-dialog";
+import { AddContactsToGroupDialog } from "./add-contacts-to-group-dialog";
 
 const items = [
   {
@@ -96,9 +97,11 @@ export function AllGroupsTable() {
                     <Search className="h-4 w-4" />
                   </Button>
                 </GetGroupContactsDialog>
-                <Button size="icon" variant="outline">
-                  <UserPlus className="h-4 w-4" />
-                </Button>
+                <AddContactsToGroupDialog>
+                  <Button size="icon" variant="outline">
+                    <UserPlus className="h-4 w-4" />
+                  </Button>
+                </AddContactsToGroupDialog>
                 <Button size="icon" variant="outline">
                   <Cog className="h-4 w-4" />
                 </Button>
