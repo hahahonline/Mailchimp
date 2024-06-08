@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/pagination";
 import { Ellipsis } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CampaignDetailsDialog } from "./campaign-details-dialog";
 
 const items = [
   {
@@ -60,12 +61,14 @@ export function LastCampaignSentTable() {
               <TableCell>{item.audience}</TableCell>
               <TableCell>{item.date}</TableCell>
               <TableCell>
-                <Button variant="outline" size="icon">
-                  <Ellipsis
-                    size={16}
-                    className="text-gray-500 hover:text-gray-700 cursor-pointer"
-                  />
-                </Button>
+                <CampaignDetailsDialog>
+                  <Button variant="outline" size="icon">
+                    <Ellipsis
+                      size={16}
+                      className="text-gray-500 hover:text-gray-700 cursor-pointer"
+                    />
+                  </Button>
+                </CampaignDetailsDialog>
               </TableCell>
             </TableRow>
           ))}

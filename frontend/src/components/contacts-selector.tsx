@@ -7,7 +7,7 @@ const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `Contato ${a.length - i}`
 );
 
-export function ContactsSelector() {
+export function ContactsSelector({ disabled = false }: { disabled?: boolean }) {
   return (
     <div className="flex flex-col gap-2">
       <div className="h-72 rounded-md border w-full overflow-y-scroll">
@@ -17,7 +17,7 @@ export function ContactsSelector() {
               <>
                 {index !== 0 && <Separator className="my-4" />}
                 <div key={tag} className="text-sm flex items-center gap-4">
-                  <Checkbox id="terms" />
+                  {!disabled && <Checkbox id="terms" />}
                   <span className="block">{tag}</span>
                 </div>
               </>

@@ -1,11 +1,11 @@
 import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
-import { AllCampaignsTable } from "./campanhas/all-campaigns-table";
+import { AllCampaignsTable } from "./components/all-campaigns-table";
 
 export default function Page() {
   return (
     <div className="flex flex-col gap-12">
-      <h1 className="text-3xl font-semibold">Audiência</h1>
+      <h1 className="text-3xl font-semibold">Campanhas</h1>
 
       <div className="flex flex-col gap-3">
           <h2 className="text-2xl font-semibold flex items-center">

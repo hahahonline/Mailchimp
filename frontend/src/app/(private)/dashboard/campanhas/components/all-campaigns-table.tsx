@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/pagination";
 import { Ellipsis } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CampaignDetailsDialog } from "../../components/campaign-details-dialog";
 
 const items = [
   {
@@ -90,9 +91,11 @@ export function AllCampaignsTable() {
               <TableCell>{item.audienceCount}</TableCell>
               <TableCell>{item.createdAt}</TableCell>
               <TableCell className="flex gap-4">
-                <Button size="icon" variant="outline">
-                  <Ellipsis className="h-4 w-4" />
-                </Button>
+                <CampaignDetailsDialog>
+                  <Button size="icon" variant="outline">
+                    <Ellipsis className="h-4 w-4" />
+                  </Button>
+                </CampaignDetailsDialog>
               </TableCell>
             </TableRow>
           ))}
