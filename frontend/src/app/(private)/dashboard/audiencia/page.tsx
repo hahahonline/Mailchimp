@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AllGroupsTable } from "./components/all-groups-table";
 import { CreateContactDialog } from "./components/create-contact-dialog";
+import { CreateGroupDialog } from "./components/create-group-dialog";
 
 export default function Page() {
   return (
@@ -35,10 +36,12 @@ export default function Page() {
             <Mailbox className="h-6 w-6 mr-3" strokeWidth={2.5} />
             Todos os seus grupos
           </h2>
-          <Button>
-            <PlusCircle className="h-4 w-4 mr-2" strokeWidth={2.5} />
-            Adicionar grupo
-          </Button>
+          <CreateGroupDialog>
+            <Button>
+              <PlusCircle className="h-4 w-4 mr-2" strokeWidth={2.5} />
+              Adicionar grupo
+            </Button>
+          </CreateGroupDialog>
         </div>
         <div className="border rounded-md p-5 flex flex-col gap-6">
           <Input placeholder="Buscar por nome, e-mail ou celular" />
