@@ -8,12 +8,12 @@ export class Client {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique:true })
   email: string;
 
   @Column()
   password: string;
 
-  @Column()
+  @Column({ unique:true })
   cpf: string;
 }

@@ -4,9 +4,11 @@ export class CreateClientDto {
   @IsNotEmpty()
   name: string;
 
+  @IsNotEmpty()
   @IsEmail()
   email: string;
 
+  @IsNotEmpty()
   @IsStrongPassword()
   password: string;
 

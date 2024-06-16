@@ -12,21 +12,21 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Injectable()
 export class ClientsService {
+  
   constructor(
     @InjectRepository(Client)
     private readonly clientsRepository: Repository<Client>,
     private readonly entityManager: EntityManager,
   ) {}
 
-  async create(createClientDto: CreateClientDto) {
-    const hashedPassword = await bcrypt.hash(createClientDto.password, 10); //comenta essa linha se quiser tirar a criptografia
-    const client = this.clientsRepository.create({
-      ...createClientDto,
-      password: hashedPassword, //comenta essa linha se quiser tirar a criptografia
-    });
-    await this.clientsRepository.save(client);
-    return client;
+  async create(createClientDto: CreateClientDto): Promise<Client> {
+    const { name, email, password, cpf } = createClientDto;
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(password, salt);
+    const client = this.clientsRepository.create({ name, email, password: hashedPassword, cpf });
+    return this.clientsRepository.save(client);
   }
+
 
   async findAll() {
     return this.clientsRepository.find();
@@ -52,14 +52,18 @@ export class ClientsService {
 
   async login(loginDto: LoginDto) {
     const client = await this.clientsRepository.findOne({ where: { email: loginDto.email } });
-    if (client && await bcrypt.compare(loginDto.password, client.password)) {
-      // Implement JWT or session based authentication here
-      return client;
-    } else {
-      throw new UnauthorizedException('Email or password incorrect');
+    if (!client) {
+      throw new UnauthorizedException('Invalid credentials');
     }
+    if (!await bcrypt.compare(loginDto.password, client.password)) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+    return client;
   }
 
+  findByEmail(email: string): Promise<Client | undefined> {
+    return this.clientsRepository.findOne({ where: { email } });
+  }
 }
 
   
