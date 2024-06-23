@@ -14,6 +14,7 @@ import {
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import {deleteCookie} from 'cookies-next'
 
 export function ConfirmLogoutDialog({
   children,
@@ -23,6 +24,7 @@ export function ConfirmLogoutDialog({
   const router = useRouter();
 
   function handleLogout() {
+    deleteCookie('token')
     router.push("/acessar");
     toast.info("Você saiu da sua conta", {
       position: "top-center",
