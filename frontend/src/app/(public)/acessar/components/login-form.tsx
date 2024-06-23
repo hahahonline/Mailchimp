@@ -16,6 +16,7 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { setCookie } from 'cookies-next';
 
 const schema = z.object({
   email: z.string().email({ message: "E-mail inválido" }),
@@ -37,12 +38,32 @@ export function LoginForm({ className }: { className?: string }) {
     },
   });
 
-  function onSubmit(data: Schema) {
-    router.push("/dashboard");
-    toast.success("Você entrou na sua conta", {
-      description: "Seja bem-vindo!",
-      position: "bottom-right",
-    });
+  async function onSubmit(data: Schema) {
+    try {
+      const response = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao entrar na sua conta");
+      }
+
+      const { token } = await response.json();
+
+      setCookie("token", token);
+    
+      router.push("/dashboard");
+      toast.success("Você entrou na sua conta", {
+        description: "Seja bem-vindo!",
+        position: "bottom-right",
+      });
+    } catch {
+      toast.error("Erro ao entrar na sua conta", {
+        description: "Verifique suas credenciais e tente novamente.",
+        position: "top-center",
+      });
+    }
   }
 
   return (
